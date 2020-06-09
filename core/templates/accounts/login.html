@@ -1,66 +1,90 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Login {% endblock %}
+{% block title %} Login {% endblock %} 
 
-{% block content %}   
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
 
-    <div class="auth-wrapper">
-        <div class="auth-content">
-            <div class="auth-bg">
-                <span class="r"></span>
-                <span class="r s"></span>
-                <span class="r s"></span>
-                <span class="r"></span>
-            </div>
-            <div class="card">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <i class="feather icon-unlock auth-icon"></i>
-                    </div>
-                    <h3 class="mb-4">Login</h3>
+{% block content %}
 
-                    <span class="mb-0 text-muted">
-                        {% if msg %}
-                            {{ msg | safe }}
-                        {% else %}
-                            Default Credentials: test / ApS12_ZZs8
-                        {% endif %} 
-                    </span>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card-group">
+        <div class="card p-4">
+          <div class="card-body">
+            <h1>Login</h1>
+            <p class="text-muted">
 
-                    <br />
-                    <br />
+              {% if msg %}
+                {{ msg | safe }}
+              {% else %}              
+                Use default credentials: test / ApS12_ZZs8
+              {% endif %}  
+            </p>
 
-                    <form role="form" method="post" action="">
+            <form role="form" method="post" action="">
 
-                        {% csrf_token %}                   
+              {% csrf_token %} 
 
-                        <div class="input-group mb-3">
-                            {{ form.username }}
-                        </div>
-                        
-                        <div class="input-group mb-4">
-                            {{ form.password }}
-                        </div>
-                        
-                        <div class="form-group text-left">
-                            <div class="checkbox checkbox-fill d-inline">
-                                <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                                <label for="checkbox-fill-a1" class="cr"> Save Details</label>
-                            </div>
-                        </div>
-                        <button type="submit" name="login" class="btn btn-primary shadow-2 mb-4">Login</button>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend"><span class="input-group-text">
+                    <svg class="c-icon">
+                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
+                    </svg></span></div>
+                    {{ form.username }}
+              </div>
 
-                    </form>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend"><span class="input-group-text">
+                    <svg class="c-icon">
+                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                    </svg></span></div>
+                    {{ form.password }}
+              </div>
 
-                    <p class="mb-0 text-muted">Don’t have an account? <a href={% url 'register' %} >Signup</a></p>
-                    <br />
-                    <p class="mb-2 text-muted">
-                        &copy; <a target="_blank" href="https://codedthemes.com/">CodedThemes</a> 
-                        - <a target="_blank" href="https://appseed.us/boilerplate-code/django-dashboard">Django Boilerplate Dashboard</a>.
-                    </p>
+              <div class="row">
+                <div class="col-6">
+                  <button type="submit" name="login" class="btn btn-primary px-4">Login</button>
                 </div>
-            </div>
+                <div class="col-6 text-right">
+                  <a href={% url 'register' %} class="btn btn-link px-0">Register</a>
+                </div>
+              </div>
+            
+            </form> 
+
+          </div>
         </div>
+        <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+          <div class="card-body text-center">
+            <div>
+              <h2>
+                <a target="_blank" class="text-white" href="https://appseed.us/admin-dashboards/django-dashboard-coreui">
+                  Django CoreUI
+                </a>
+              </h2>
+              <p>
+                MIT licensed admin dashboard for CoreUI Dashboard (Free Version)
+              </p>
+              <p>
+                <a href="https://appseed.us/admin-dashboards/django-dashboard-coreui" target="_blank"  
+                   class="btn btn-lg btn-outline-light mt-3">See Product</a>
+              </p>
+
+              <br />
+              <p>
+                &copy; <a class="text-white" target="_blank" href="https://coreui.io/">CoreUI</a> 
+                - coded by <a class="text-white" target="_blank" href="https://appseed.us">AppSeed</a>.
+              </p>
+  
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 {% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

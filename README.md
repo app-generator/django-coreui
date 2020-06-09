@@ -1,8 +1,9 @@
-# [Boierplate Code Django Dashboard](https://appseed.us/boilerplate-code/django-dashboard)
+# [Django Dashboard CoreUI](https://appseed.us/admin-dashboards/django-dashboard-coreui)
 
-> Template [boilerplate code](https://appseed.us/boilerplate-code) used by [AppSeed](https://appseed.us) to generate simple admin dashboards coded in [Django](https://www.djangoproject.com/) - Features
+> **Open-Source Admin Dashboard** coded in **Django Framework** by **AppSeed** [Web App Generator](https://appseed.us/app-generator) - Features:
 
-- UI Kit: **Datta Able Dashboard** (Lite Version) provided by **CodedThemes**
+- Base UI Kit: **CoreUI Dashboard** (Free Version) provided by **CoreUI** agency
+- Jinja2 Theme: [Jinja2 Theme - CoreUI (Free Version)](https://github.com/app-generator/theme-jinja2-coreui)
 - UI-Ready app, SQLite Database, Django Native ORM
 - Modular design, clean code-base
 - Session-Based Authentication, Forms validation
@@ -13,14 +14,14 @@
 
 > Links
 
-- [Boierplate Code Django Dashboard](https://boilerplate-code-django-dashboard.appseed.us/) - LIVE Demo
-- [Boierplate Code Django Dashboard](https://appseed.us/boilerplate-code/django-dashboard) - Official product page
+- [Django Dashboard CoreUI](https://django-dashboard-coreui.appseed.us/) - LIVE Demo
+- [Django Dashboard CoreUI](https://appseed.us/admin-dashboards/django-dashboard-coreui) - Official product page
 - More [Django Admin Dashboards](https://appseed.us/admin-dashboards/django) - index hosted by **[AppSeed](https://appseed.us)**
 - [Open-Source Admin Dashboards](https://appseed.us/admin-dashboards/open-source) - index hosted by **[AppSeed](https://appseed.us)**
 
 <br />
 
-![Boierplate Code Django Dashboard - Template project provided by AppSeed.](https://raw.githubusercontent.com/app-generator/boilerplate-code-django-dashboard/master/media/boilerplate-code-django-dashboard-screen.png)
+![Django Dashboard CoreUI - Template project provided by AppSeed.](https://raw.githubusercontent.com/app-generator/django-dashboard-coreui/master/media/django-dashboard-coreui-screen.png)
 
 <br />
 
@@ -28,8 +29,8 @@
 
 ```bash
 $ # Get the code
-$ git clone https://github.com/app-generator/boilerplate-code-django-dashboard.git
-$ cd boilerplate-code-django-dashboard
+$ git clone https://github.com/app-generator/django-dashboard-coreui.git
+$ cd django-dashboard-coreui
 $
 $ # Virtualenv modules installation (Unix based systems)
 $ virtualenv env
@@ -137,8 +138,8 @@ The application can be easily executed in a docker container. The steps:
 > Get the code
 
 ```bash
-$ git clone https://github.com/app-generator/boilerplate-code-django-dashboard.git
-$ cd boilerplate-code-django-dashboard
+$ git clone https://github.com/app-generator/django-dashboard-coreui.git
+$ cd django-dashboard-coreui
 ```
 
 > Start the app in Docker
@@ -203,4 +204,4 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 <br />
 
 ---
-[Boierplate Code Django Dashboard](https://appseed.us/boilerplate-code/django-dashboard) - Provided by **AppSeed** [Web App Generator](https://appseed.us/app-generator).
+[Django Dashboard CoreUI](https://appseed.us/admin-dashboards/django-dashboard-coreui) - Provided by **AppSeed** [Web App Generator](https://appseed.us/app-generator).

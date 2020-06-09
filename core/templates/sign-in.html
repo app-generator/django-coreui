@@ -1,0 +1,75 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Login {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card-group">
+        <div class="card p-4">
+          <div class="card-body">
+            <h1>Login</h1>
+            <p class="text-muted">
+              Sign In to your account - <a href="/">HOME</a>
+            </p>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><span class="input-group-text">
+                  <svg class="c-icon">
+                    <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
+                  </svg></span></div>
+              <input class="form-control" type="text" placeholder="Username">
+            </div>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend"><span class="input-group-text">
+                  <svg class="c-icon">
+                    <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                  </svg></span></div>
+              <input class="form-control" type="password" placeholder="Password">
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <button class="btn btn-primary px-4" type="button">Login</button>
+              </div>
+              <div class="col-6 text-right">
+                <a href="/sign-up.html" class="btn btn-link px-0">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+          <div class="card-body text-center">
+            <div>
+              <h2>
+                <a target="_blank" class="text-white" href="https://appseed.us/admin-dashboards/django-dashboard-coreui">
+                  Django CoreUI
+                </a>
+              </h2>
+              <p>
+                MIT licensed admin dashboard for CoreUI Dashboard (Free Version)
+              </p>
+              <p>
+                <a href="https://appseed.us/admin-dashboards/django-dashboard-coreui" target="_blank"  
+                   class="btn btn-lg btn-outline-light mt-3">See Product</a>
+              </p>
+
+              <br />
+              <p>
+                &copy; <a class="text-white" target="_blank" href="https://coreui.io/">CoreUI</a> 
+                - coded by <a class="text-white" target="_blank" href="https://appseed.us">AppSeed</a>.
+              </p>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,33 +1,33 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} 403 Page {% endblock %}
+{% block title %} Error 500 {% endblock %} 
 
-{% block content %}   
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
 
-    <div class="auth-wrapper">
-        <div class="auth-content">
-            <div class="auth-bg">
-                <span class="r"></span>
-                <span class="r s"></span>
-                <span class="r s"></span>
-                <span class="r"></span>
-            </div>
-            <div class="card">
-                <div class="card-body text-center">
-                    <div class="mb-4">
-                        <i class="feather x-circle"></i>
-                    </div>
-                    <h3 class="mb-4">Error 500</h3>
+{% block content %}
 
-                    <br />
-
-                    <span class="mb-0 text-muted">
-                        Server Error - <a href="/">Home</a> 
-                    </span>
-
-                </div>
-            </div>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="clearfix">
+        <h1 class="float-left display-3 mr-4">500</h1>
+        <h4 class="pt-3">Houston, we have a problem!</h4>
+        <p class="text-muted">
+          The page you are looking for is temporarily unavailable - <a href="/">HOME</a>.
+        </p>
+      </div>
+      <div class="input-prepend input-group">
+        <div class="input-group-prepend"><span class="input-group-text">
+            <svg class="c-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-magnifying-glass"></use>
+            </svg></span></div>
+        <input class="form-control" id="prependedInput" size="16" type="text" placeholder="What are you looking for?"><span class="input-group-append">
+          <button class="btn btn-info" type="button">Search</button></span>
+      </div>
     </div>
+  </div>
 
 {% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

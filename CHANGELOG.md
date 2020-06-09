@@ -1,15 +1,12 @@
 # Change Log
 
-## [Unreleased]
-### Bug fixing, Improvements
-- Patch #2 - Error when access `admin` path (no trailing slash)
+## [1.0.1] 2020-06-08
+### Improvements
 
-## [1.0.1] 2020-05-30
-### Bug fixing, Improvements
+- Bump the Core UI Kit to v3.2.0
+- Update the code-base to use latest Django Boilerplate - https://github.com/app-generator/boilerplate-code-django-dashboard
+- Update Licensing information
 - Add CHANGELOG.md to track all changes
-- Patch #1 - Error-404.html not used in all contexts
-- Rename error pages: error-40X become page-40X
-- Update LICENSE file - added more information regarding the app usage
 
-## [1.0.0] 2020-02-07
+## [1.0.0] 2020-01-01
 ### Initial Release
