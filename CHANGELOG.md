@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.0.1] 2020-06-08
+## [1.0.1] 2020-06-08 
 ### Improvements
 
 - Bump the Core UI Kit to v3.2.0
