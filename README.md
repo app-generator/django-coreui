@@ -17,8 +17,8 @@
 > Links
 
 - [CoreUI Django](https://appseed.us/admin-dashboards/django-dashboard-coreui) - product page
-- [CoreUI Django - Demo](https://django-coreui.appseed-srv1.com/) - LIVE deployment
-- [Django Tutorial](https://github.com/app-generator/tutorial-django) - Getting started with Django
+- [CoreUI Django](https://django-coreui.appseed-srv1.com/) - LIVE deployment
+- [CoreUI Django](https://docs.appseed.us/products/django-dashboards/coreui) - product documentation
 
 <br />
 
