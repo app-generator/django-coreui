@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}FORM INPUT DATABASE TK JKM{% endblock  %}
+
+{% block style %}
+
+{% endblock  %}
+
+{% block content %}
+<h1>Test</h1>
+<input type="text" id="test">
+<table id="test-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Hrd ID</th>
+      <th>Keterangan</th>
+      <th>Klaim ID</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock  %}
+
+
+{% block script %}
+<script type="text/javascript">
+
+const urlKlaim = "{% url 'get-klaim-test' %}"
+const testBox = document.getElementById('test')
+const testTable = document.getElementById('test-table')
+
+
+$.ajax({
+  type:'GET',
+  url:urlKlaim,
+  success: function(response){
+    console.log(response.data)
+    const klaimData = response.data
+    klaimData.map(item => {
+      $("#test-table tbody").append("<tr><td>" + item.id + "</td><td>" + item.hrd_id + "</td><td>" + item.keterangan + "</td></tr>")
+    })
+
+  },
+  error: function(error){
+    console.log(error)
+  }
+})
+
+$('#id_npp').select2({placeholder:'Pilih Perusahaan'});
+
+</script>
+
+{% endblock  %}

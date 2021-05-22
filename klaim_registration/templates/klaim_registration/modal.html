@@ -1,0 +1,41 @@
+<div class="modal fade" id="detailModal{{instance.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Approval {{data.klaim.nama}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Detail Tenaga Kerja {{instance.nama}}
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Nama</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static">{{instance.nama}}</p>
+                                    </div>
+                                <div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">No. KTP/NIK</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static">{{instance.nik}}</p>
+                                    </div>
+                                <div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Tempat/Tgl.Lahir</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static">{{instance.tempat_lahir}}/{{instance.tgl_lahir}}</p>
+                                    </div>
+                                <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+  </div>
+</div>

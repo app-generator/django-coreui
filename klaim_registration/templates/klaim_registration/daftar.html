@@ -1,0 +1,210 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}FORM INPUT DATABASE TK{% endblock  %}
+
+{% block stylesheets %}
+
+{% endblock  %}
+
+{% block content %}
+<main class="c-main">
+    <div class="container-fluid">
+        <div class="fade-in">
+            <div class="row">
+                <div class="col">
+                    <form class="row m-2" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                        <div class="col-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    DATA TENAGA KERJA
+                                </div>
+                                
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                {{forms.nama}}
+                                                {{forms.nama.errors}}
+                                            </div>
+                                            <div class="col">
+                                                {{forms.nik}}
+                                                {{forms.nik.errors}}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                {{forms.tempat_lahir}}
+                                                {{forms.tempat_lahir.errors}}
+                                            </div>
+                                            <div class="col">
+                                                {{forms.tgl_lahir}}
+                                                {{forms.tgl_lahir.errors}}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                {{forms.kpj}}
+                                                {{forms.kpj.errors}}
+                                            </div>
+                                            <div class="col">
+                                                {{forms.npp}}
+                                                {{forms.npp.errors}}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                {{forms.nama_ibu}}
+                                                {{forms.nama_ibu.errors}}
+                                            </div>
+                                            <div class="col">
+                                                {{forms.status}}
+                                                {{forms.status.errors}}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                {{forms.nama_rekening}}
+                                            </div>
+                                            <div class="col">
+                                                {{forms.no_rekening}}
+                                                {{forms.no_rekening.errors}}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col">{{forms.no_hp}}{{forms.no_hp.errors}}
+                                            <label class="form-label">Format nomor hp : 08xxxxxx</label>
+                                            </div>
+                                            
+                                            <div class="col">
+                                                {{forms.alamat}}
+                                                {{forms.alamat.errors}}
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="card-header">
+                                        DATA KELUARGA
+                                    </div>
+                                        <div name="pasangan" class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    {{forms.nama_pasangan}}
+                                                    {{forms.nama_pasangan.errors}}
+                                                </div>
+                                                <div class="col">
+                                                    {{forms.tgl_lahir_pasangan}}
+                                                    {{forms.tgl_lahir_pasangan.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    {{forms.nama_anak_s}}
+                                                    {{forms.nama_anak_s.errors}}
+                                                </div>
+                                                <div class="col">
+                                                    {{forms.tgl_lahir_s}}
+                                                    {{forms.tgl_lahir_s.errors}}
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    {{forms.nama_anak_d}}
+                                                    {{forms.nama_anak_d.errors}}
+                                                </div>
+                                                <div class="col">
+                                                    {{forms.tgl_lahir_d}}
+                                                    {{forms.tgl_lahir_d.errors}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="col-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    UPLOAD BERKAS
+                                </div>
+                                <div class="card-body text-end">
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <label class="form-label">Upload Kartu Keluarga</label>
+                                            {{forms.file_kk}}
+                                            {{forms.file_kk.errors}}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <label class="form-label">Upload KTP</label>
+                                            {{forms.file_ktp}}
+                                            {{forms.file_ktp.errors}}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <label class="form-label">Upload Buku Nikah</label>
+                                            {{forms.file_buku_nikah}}
+                                            {{forms.file_buku_nikah.errors}}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <label class="form-label">Upload File lain</label>
+                                            {{forms.file_lain}}
+                                            {{forms.file_lain.errors}}
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Daftarkan</button>
+                                </div>
+                            </div>
+                        <div>
+                        </div>
+                        
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock  %}
+
+
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+    $('#id_npp').select2();
+})
+</script>
+
+<script>
+$(document).ready(function() {
+    $('div[name="pasangan"]').hide();
+    showhide();
+    $("#id_status").change(function () {
+        showhide();
+    });
+    
+});
+
+function showhide(){
+      if( $('select[name="status"]').val() == 2){
+            console.log('Menikah')
+            $('div[name="pasangan"]').show();
+        }
+    else{
+            $('div[name="pasangan"]').hide();
+            console.log('Salah')
+        }
+}
+</script>
+
+
+{% endblock  %}

@@ -1,0 +1,255 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Daftar Pengajuan Klaim JKM{% endblock %}
+
+{% block style %}{% endblock %}
+
+{% block content %}
+<main class="c-main">
+  <div class="container-fluid">
+    <div class="fade-in">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <i class="fa fa-align-justify"></i>HRD Klaim
+              </div>
+            </div>
+            <div class="card-body">
+              <table class="table table-responsive-sm table-bordered table-striped table-sm" style="font-size: 12px;"
+              id="tableKlaim">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Klaim</th>
+                  <th>Keterangan</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for data in datas %}
+                <tr id="{{data.id}}" class="align-middle">
+                  <td>{{forloop.counter}}
+                  <td>
+                    <a href="#" data-id={{data.id}} data-toggle="modal" data-target="#detailModal{{data.id}}"
+                      id="dataKlaim{{data.id}">
+                      {{data.klaim}}
+                    </a>
+                  </td>
+  
+                  {% if data.keterangan is None %}
+                  <td></td>
+                  {% else %}
+                  <td>{{data.keterangan}}</td>
+                  {% endif %}
+  
+                  {% if data.status == 'DALAM PEMERIKSAAN' %}
+                  <td><a id="tombol-status" href="#" class="btn btn-primary" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal{{data.id}}">{{data.status}}</a></td>
+                  {% else %}
+                  <td>{{data.status}}</td>
+                  {% endif %}
+  
+                </tr>
+                <!-- Modal Status Approval-->
+                <div class="modal fade" id="exampleModal{{data.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Approval {{data.klaim.nama}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+  
+                      <div class="modal-body">
+                        <form id="formApprove" action="" enctype='multipart/form-data'>
+                          {% csrf_token %}
+                          <select id="status" class="form-select" aria-label="Default select example">
+                            <option selected>Pilih status...</option>
+                            <option value="DALAM PEMERIKSAAN">DALAM PEMERIKSAAN</option>
+                            <option value="DISETUJUI">DISETUJUI</option>
+                            <option value="DITOLAK">DITOLAK</option>
+                          </select>
+                          <div class="form-floating">
+                            <textarea id="keterangan" class="form-control" placeholder="Leave a comment here"
+                              id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">keterangan</label>
+                          </div>
+                          <input hidden type="text" id="klaim_id" value="{{data.id}}">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="simpan" type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="modal fade" id="detailModal{{data.id}}" tabindex="-1" role="dialog"
+                  aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Modal title</h4>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>One fine body…</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary" type="button">Save changes</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content-->
+                  </div>
+                  <!-- /.modal-dialog-->
+                </div>
+  
+                <!-- MODAL DETAIL -->
+                <!-- <div class="modal fade" id="detailModal{{data.id}}1" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                  <div class="modal-content" id="detail-modal">
+                                      <div class="modal-header">
+                                          <h5 class="modal-title" id="detailModalLabel">Detail Approval</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                          <div class="modal-body">
+                                              <div class="row">
+                                                  <div class="col">
+                                                      <div class="card">
+                                                          <div class="card-header" id="detailModal">
+                                                              Detail Tenaga Kerja - <b></b>
+                                                          </div>
+                                                          <div class="card-body">
+                                                              <div class="form-group row">
+                                                                  <label class="col-sm-3 col-form-label">Nama</label>
+                                                                  <div class="col-md-9">
+                                                                      <p class="form-control-static">{{data.klaim.nama}}</p>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="form-group row">
+                                                                  <label class="col-md-3 col-form-label">No. KTP/NIK</label>
+                                                                  <div class="col-md-9">
+                                                                      <p class="form-control-static">{{data.klaim.nik}}</p>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="form-group row">
+                                                                  <label class="col-md-3 col-form-label">Tempat/Tgl.Lahir</label>
+                                                                  <div class="col-md-9">
+                                                                      <p class="form-control-static">{{data.klaim.tempat_lahir}}/{{data.klaim.tgl_lahir}}</p>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                  </div>
+                              </div>
+                          </div>             -->
+                {% endfor %}
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+  const csrf = document.getElementsByName('csrfmiddlewaretoken')
+  const formApprove = document.getElementById('formApprove')
+  const urlHrdKlaim = "{% url 'hrd-klaim' %}"
+
+  const statusBox = document.getElementById('status')
+  const keteranganBox = document.getElementById('keterangan')
+  const klaimIdBox = document.getElementById('klaim_id')
+
+  const simpanBox = document.getElementById('simpan')
+
+
+  formApprove.addEventListener('submit', e => {
+    e.preventDefault();
+
+    $.ajax({
+      type: 'POST',
+      url: "{% url 'hrd-klaim' %}",
+      data: {
+        'csrfmiddlewaretoken': csrf[0].value,
+        'id': klaimIdBox.value,
+        'status': statusBox.value,
+        'keterangan': keteranganBox.value
+      },
+      success: function (response) {
+        // console.log(response)
+        location.reload();
+        formApprove.reset()
+      },
+      error: function (error) {
+        console.log(error)
+      }
+    })
+
+
+  })
+</script>
+
+<script>
+  const modalID = document.getElementById('detailModal')
+  const bID = document.querySelectorAll('p.form-control-static')
+
+  const table = document.getElementById('tableKlaim')
+  const cell = table.getElementsByTagName('td')
+  const jml_col = 4
+
+  for (var i = 1; i < cell.length; i += jml_col) {
+    cell[i].onclick = function () {
+      id = this.parentElement.id
+      //modalID.setAttribute('id', `detailModal${id}`)
+      console.log(id)
+
+      $.ajax({
+        type: 'GET',
+        url: `/hrd/klaim/${id}/`,
+        async: true,
+        success: function (response) {
+          var items = '';
+          var labels = ['NAMA', 'NIK', 'NAMA IBU KANDUNG', 'STATUS PERNIKAHAN', 'TEMPAT/TGL.LAHIR', 'KPJ',
+            'NPP', 'NAMA REKENING', 'NO REKENING', 'NO HP']
+          $.each(response, function (i, item) {
+
+
+            bID[0].innerHTML = item[0].klaim__nama
+            bID[1].innerHTML = item[0].klaim__nik
+            bID[2].innerHTML = (item[0].klaim__tempat_lahir + "/" + item[0].klaim__tgl_lahir)
+
+            //var label = "<label class='col-sm-3 col-form-label'>" + item[0].klaim__nama + "</label>"
+            //$('div.form-group.row').append(label)
+
+          });
+        },
+        error: function (error) {
+          console.log(error)
+        }
+      })
+    }
+  }
+
+
+
+
+
+</script>
+{% endblock %}

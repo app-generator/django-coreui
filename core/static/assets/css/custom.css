@@ -1,0 +1,55 @@
+.col-form-label {
+    font-size: 10px;
+}
+
+p.form-control-static {
+    font-size: 10px;
+}
+
+th {
+    font-size: 10px;
+}
+
+#example td {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    padding: 2px;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.5rem;
+    line-height: 1;
+    border-radius: 0.2rem;
+}
+
+.dataTables_wrapper .dt-buttons {
+    float: left;
+}
+
+.dt-button {
+    padding: 0.3rem 0.3rem;
+    font-size: 0.5rem;
+}
+
+#example_info {
+    font-size: 10px;
+}
+
+a.paginate_button.current {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.5rem;
+    line-height: 1;
+    border-radius: 0.2rem;
+}
+
+a.paginate_button.previous {
+    font-size: 10px;
+}
+
+a.paginate_button.next {
+    font-size: 10px;
+}
