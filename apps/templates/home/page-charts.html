@@ -1,0 +1,91 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Charts {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+  <link href="/static/assets/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+  <main class="c-main">
+    <div class="container-fluid">
+      <div class="fade-in">
+        <div class="card-columns cols-2">
+          <div class="card">
+            <div class="card-header">Line Chart
+              <div class="card-header-actions"><a class="card-header-action" href="http://www.chartjs.org" target="_blank"><small class="text-muted">docs</small></a></div>
+            </div>
+            <div class="card-body">
+              <div class="c-chart-wrapper">
+                <canvas id="canvas-1"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Bar Chart
+              <div class="card-header-actions"><a class="card-header-action" href="http://www.chartjs.org" target="_blank"><small class="text-muted">docs</small></a></div>
+            </div>
+            <div class="card-body">
+              <div class="c-chart-wrapper">
+                <canvas id="canvas-2"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Doughnut Chart
+              <div class="card-header-actions"><a class="card-header-action" href="http://www.chartjs.org" target="_blank"><small class="text-muted">docs</small></a></div>
+            </div>
+            <div class="card-body">
+              <div class="c-chart-wrapper">
+                <canvas id="canvas-3"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Radar Chart
+              <div class="card-header-actions"><a class="card-header-action" href="http://www.chartjs.org" target="_blank"><small class="text-muted">docs</small></a></div>
+            </div>
+            <div class="card-body">
+              <div class="c-chart-wrapper">
+                <canvas id="canvas-4"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Pie Chart
+              <div class="card-header-actions"><a class="card-header-action" href="http://www.chartjs.org" target="_blank"><small class="text-muted">docs</small></a></div>
+            </div>
+            <div class="card-body">
+              <div class="c-chart-wrapper">
+                <canvas id="canvas-5"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Polar Area Chart
+              <div class="card-header-actions"><a class="card-header-action" href="http://www.chartjs.org" target="_blank"><small class="text-muted">docs</small></a></div>
+            </div>
+            <div class="card-body">
+              <div class="c-chart-wrapper">
+                <canvas id="canvas-6"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script src="/static/assets/vendors/@coreui/chartjs/js/coreui-chartjs.bundle.js"></script>
+  <script src="/static/assets/js/charts.js"></script>
+
+{% endblock javascripts %}
