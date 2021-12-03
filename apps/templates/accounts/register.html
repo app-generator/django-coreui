@@ -1,106 +1,79 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Login {% endblock %} 
+{% block title %} Register {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
 
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card-group">
-        <div class="card p-4">
-          <div class="card-body">
-            <h1>Register</h1>
-            <p class="text-muted">
-
-              {% if msg %}
-                {{ msg | safe }}
-              {% else %}              
-                Create your account
-              {% endif %}  
-            </p>
+    <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card mb-4 mx-4">
+              <div class="card-body p-4">
+                <h1>Register</h1>
+                <p class="text-medium-emphasis">
+                  {% if msg %}
+                    {{ msg | safe }}
+                  {% else %}              
+                    Create your account
+                  {% endif %}                  
+                </p>
 
             <form role="form" method="post" action="">
 
               {% csrf_token %} 
 
-              <div class="input-group mb-3">
-                <div class="input-group-prepend"><span class="input-group-text">
-                    <svg class="c-icon">
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
                       <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
-                    </svg></span></div>
-                    {{ form.username }}
-              </div>
-              <span class="text-error">{{ form.username.errors }}</span>
 
-              <div class="input-group mb-3">
-                <div class="input-group-prepend"><span class="input-group-text">
-                    <svg class="c-icon">
+                    </svg></span>
+                  {{ form.username }}
+                </div>
+                <span class="text-error">{{ form.username.errors }}</span>
+
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
                       <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
-                    </svg></span></div>
-                    {{ form.email }}
-              </div>  
-              <span class="text-error">{{ form.email.errors }}</span>
-
-              <div class="input-group mb-4">
-                <div class="input-group-prepend"><span class="input-group-text">
-                    <svg class="c-icon">
-                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                    </svg></span></div>
-                    {{ form.password1 }}
-              </div>
-              <span class="text-error">{{ form.password1.errors }}</span>
-
-              <div class="input-group mb-4">
-                <div class="input-group-prepend"><span class="input-group-text">
-                    <svg class="c-icon">
-                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                    </svg></span></div>
-                    {{ form.password2 }}
-              </div>
-              <span class="text-error">{{ form.password2.errors }}</span>
-
-              <div class="row">
-                <div class="col-6">
-                  <button type="submit" name="register" class="btn btn-primary px-4">Register</button>
+                    </svg></span>
+                  {{ form.email }}
                 </div>
-                <div class="col-6 text-right">
-                  <a href={% url 'login' %} class="btn btn-link px-0">Login</a>
+                <span class="text-error">{{ form.email.errors }}</span>
+
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
+                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                    </svg></span>
+                  {{ form.password1 }}
                 </div>
+                <span class="text-error">{{ form.password1.errors }}</span>
+
+                <div class="input-group mb-4"><span class="input-group-text">
+                    <svg class="icon">
+                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                    </svg></span>
+                  {{ form.password2 }}
+                </div>
+                <span class="text-error">{{ form.password2.errors }}</span>
+
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn btn-block btn-success" type="submit" name="register">Create Account</button>
+                  </div>
+                  <div class="col-6 text-end">
+                    <a href="{% url 'login' %}" class="btn btn-link px-0" type="button">Login</a>
+                  </div>
+                </div>
+
               </div>
-            
-            </form> 
-
-          </div>
-        </div>
-        <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
-          <div class="card-body text-center">
-            <div>
-              <h2>
-                  Django CoreUI
-              </h2>
-              <p>
-                MIT licensed admin dashboard for CoreUI Dashboard (Free Version)
-              </p>
-              <p>
-                <a href="https://appseed.us/admin-dashboards/django-dashboard-coreui" target="_blank"  
-                   class="btn btn-lg btn-outline-light mt-3">See Product</a>
-              </p>
-
-              <br />
-              <p>
-                &copy; <a class="text-white" target="_blank" href="https://bit.ly/2VTDaxg">CoreUI</a> 
-                - coded by <a class="text-white" target="_blank" href="https://appseed.us">AppSeed</a>.
-              </p>
-  
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
 {% endblock content %}
 

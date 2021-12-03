@@ -1,0 +1,34 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Error 500 {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="clearfix">
+            <h1 class="float-start display-3 me-4">500</h1>
+            <h4 class="pt-3">Houston, we have a problem!</h4>
+            <p class="text-medium-emphasis">The page you are looking for is temporarily unavailable.</p>
+          </div>
+          <div class="input-group"><span class="input-group-text">
+              <svg class="icon">
+                <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-magnifying-glass"></use>
+              </svg></span>
+            <input class="form-control" id="prependedInput" size="16" type="text" placeholder="What are you looking for?">
+            <button class="btn btn-info" type="button">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
