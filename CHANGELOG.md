@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.3] 2021-12-03
+### Improvements
+
+- Bump UI: CoreUI v4.1.0
+
 ## [1.0.2] 2021-10-07
 ### Improvements
 
