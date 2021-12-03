@@ -46,7 +46,7 @@ Visit `http://localhost:85` in your browser. The app should be up & running.
 
 <br />
 
-![Django Dashboard CoreUI - Template project provided by AppSeed.](https://raw.githubusercontent.com/app-generator/django-dashboard-coreui/master/media/django-dashboard-coreui-screen.png)
+![Django Dashboard CoreUI - Template project provided by AppSeed.](https://user-images.githubusercontent.com/51070104/144588931-c8acd30d-579c-4042-9eae-c23706149a7c.gif)
 
 <br />
 
