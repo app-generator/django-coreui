@@ -6,7 +6,7 @@ Open-source **[Django Dashboard](https://appseed.us/admin-dashboards/django)** g
 
 > Features
 
-- UI Kit: **CoreUI** (Free Version) v4.1.0
+- UI Kit: **[CoreUI](https://bit.ly/2VTDaxg)** (Free Version) **v4.1.0**
 - Up-to-date [dependencies](./requirements.txt): **Django 3.2.6 LTS**
 - [SCSS compilation](#recompile-css) via **Gulp**
 - UI-Ready app, SQLite Database, Django Native ORM
