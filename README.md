@@ -6,26 +6,25 @@ Open-source **[Django Dashboard](https://appseed.us/admin-dashboards/django)** g
 
 > Features
 
-- UI Kit: **[CoreUI](https://bit.ly/2VTDaxg)** (Free Version) **v4.1.0**
-- Up-to-date [dependencies](./requirements.txt): **Django 3.2.6 LTS**
+- `Up-to-date dependencies`
 - [SCSS compilation](#recompile-css) via **Gulp**
-- UI-Ready app, SQLite Database, Django Native ORM
-- Modular design, clean code-base
-- Session-Based Authentication, Forms validation
-- Deployment scripts: Docker, Gunicorn / Nginx
+- UI Kit: **[CoreUI](https://bit.ly/2VTDaxg)** (Free Version) **v4.1.0**
+- Modular design, clean codebase
+- `Session-Based Authentication`, Forms validation
+- `Deployment`: **Docker**, Gunicorn / Nginx
 - Support via **Github** and [Discord](https://discord.gg/fZC6hup).
 
 <br />
 
 > Links
 
-- [CoreUI Django](https://appseed.us/admin-dashboards/django-dashboard-coreui) - product page
-- [CoreUI Django](https://django-coreui.appseed-srv1.com/) - LIVE deployment
-- [CoreUI Django](https://docs.appseed.us/products/django-dashboards/coreui) - product documentation
+- 👉 [CoreUI Django](https://appseed.us/admin-dashboards/django-dashboard-coreui) - product page
+- 👉 [CoreUI Django](https://django-coreui.appseed-srv1.com/) - LIVE deployment
+- 👉 [CoreUI Django](https://docs.appseed.us/products/django-dashboards/coreui) - product documentation
 
 <br />
 
-## Quick Start in [Docker](https://www.docker.com/)
+## ✨ Quick Start in `Docker`
 
 > Get the code
 
@@ -37,9 +36,7 @@ $ cd django-dashboard-coreui
 > Start the app in Docker
 
 ```bash
-$ docker-compose pull   # download dependencies 
-$ docker-compose build  # local set up
-$ docker-compose up -d  # start the app 
+$ docker-compose up --build 
 ```
 
 Visit `http://localhost:85` in your browser. The app should be up & running.
@@ -50,12 +47,12 @@ Visit `http://localhost:85` in your browser. The app should be up & running.
 
 <br />
 
-## How to use it
+## ✨ How to use it
 
 ```bash
 $ # Get the code
-$ git clone https://github.com/app-generator/django-dashboard-coreui.git
-$ cd django-dashboard-coreui
+$ git clone https://github.com/app-generator/django-coreui.git
+$ cd django-coreui
 $
 $ # Virtualenv modules installation (Unix based systems)
 $ virtualenv env
@@ -85,7 +82,7 @@ $ # Access the web app in browser: http://127.0.0.1:8000/
 
 <br />
 
-## Code-base structure
+## ✨ Code-base structure
 
 The project is coded using a simple and intuitive structure presented bellow:
 
@@ -150,7 +147,7 @@ The project is coded using a simple and intuitive structure presented bellow:
 
 <br />
 
-## Recompile CSS
+## ✨ Recompile CSS
 
 To recompile SCSS files, follow this setup:
 
@@ -193,7 +190,7 @@ The generated file is saved in `static/assets/css` directory.
 
 <br /> 
 
-## Deployment
+## ✨ Deployment
 
 The app is provided with a basic configuration to be executed in [Docker](https://www.docker.com/), [Gunicorn](https://gunicorn.org/), and [Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/).
 
@@ -240,7 +237,7 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 
 <br />
 
-## Credits & Links
+## ✨ Credits & Links
 
 - [Django](https://www.djangoproject.com/) - The official website
 - [Boilerplate Code](https://appseed.us/boilerplate-code) - Index provided by **AppSeed**
