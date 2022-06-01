@@ -1,0 +1,205 @@
+/* stylelint-disable declaration-no-important, font-weight-notation, selector-no-qualifying-type, property-disallowed-list, scss/selector-no-redundant-nesting-selector */
+
+@import "../node_modules/@coreui/coreui/scss/functions";
+@import "../node_modules/@coreui/coreui/scss/variables";
+@import "../node_modules/@coreui/coreui/scss/mixins";
+.example {
+    &:not(:first-child) {
+        margin-top: 1.5rem;
+    }
+    .tab-content {
+        background-color: $light-50 !important;
+        @at-root .dark-theme & {
+            background-color: rgba(255, 255, 255, .1) !important;
+        }
+    }
+    code[class*="language-"],
+    pre[class*="language-"] {
+        font-size: .875rem !important;
+    }
+     :not(pre)>code[class*="language-"],
+    pre[class*="language-"] {
+        background: transparent;
+    }
+    &+p {
+        margin-top: 1.5rem;
+    }
+    // Components examples
+    .preview {
+        +p {
+            margin-top: 2rem;
+        }
+        >.form-control {
+            +.form-control {
+                margin-top: .5rem;
+            }
+        }
+        >.nav+.nav,
+        >.alert+.alert,
+        >.navbar+.navbar,
+        >.progress+.progress {
+            margin-top: 1rem;
+        }
+        >.dropdown-menu {
+            position: static;
+            display: block;
+        }
+        > :last-child {
+            margin-bottom: 0;
+        }
+        // Images
+        >svg+svg,
+        >img+img {
+            margin-left: .5rem;
+        }
+        // Buttons
+        >.btn,
+        >.btn-group {
+            margin: .25rem .125rem;
+        }
+        >.btn-toolbar+.btn-toolbar {
+            margin-top: .5rem;
+        }
+        // List groups
+        >.list-group {
+            max-width: 400px;
+        }
+        >[class*="list-group-horizontal"] {
+            max-width: 100%;
+        }
+        // Navbars
+        .fixed-top,
+        .sticky-top {
+            position: static;
+            margin: -1rem -1rem 1rem;
+        }
+        .fixed-bottom {
+            position: static;
+            margin: 1rem -1rem -1rem;
+        }
+        @include media-breakpoint-up(sm) {
+            .fixed-top,
+            .sticky-top {
+                margin: -1.5rem -1.5rem 1rem;
+            }
+            .fixed-bottom {
+                margin: 1rem -1.5rem -1.5rem;
+            }
+        }
+        // Pagination
+        .pagination {
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+        }
+    }
+}
+
+.dark-theme {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+        hyphens: none;
+        line-height: 1.5;
+        color: #c5c8c6;
+        text-align: left;
+        text-shadow: 0 1px rgba(0, 0, 0, .3);
+        word-break: normal;
+        word-spacing: normal;
+        tab-size: 4;
+        white-space: pre;
+        direction: ltr;
+    }
+    /* Code blocks */
+    pre[class*="language-"] {
+        padding: 1em;
+        margin: .5em 0;
+        overflow: auto;
+        border-radius: .3em;
+    }
+     :not(pre)>code[class*="language-"],
+    pre[class*="language-"] {
+        background: transparent;
+    }
+    /* Inline code */
+     :not(pre)>code[class*="language-"] {
+        padding: .1em;
+        border-radius: .3em;
+    }
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+        color: #7c7c7c;
+    }
+    .token.punctuation {
+        color: #c5c8c6;
+    }
+    .namespace {
+        opacity: .7;
+    }
+    .token.property,
+    .token.keyword,
+    .token.tag {
+        color: #96cbfe;
+    }
+    .token.class-name {
+        color: #ffffb6;
+        text-decoration: underline;
+    }
+    .token.boolean,
+    .token.constant {
+        color: #9c9;
+    }
+    .token.symbol,
+    .token.deleted {
+        color: #f92672;
+    }
+    .token.number {
+        color: #ff73fd;
+    }
+    .token.selector,
+    .token.attr-name,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.inserted {
+        color: #a8ff60;
+    }
+    .token.variable {
+        color: #c6c5fe;
+    }
+    .token.operator {
+        color: #ededed;
+    }
+    .token.entity {
+        color: #ffffb6;
+        cursor: help;
+    }
+    .token.url {
+        color: #96cbfe;
+    }
+    .language-css .token.string,
+    .style .token.string {
+        color: #87c38a;
+    }
+    .token.atrule,
+    .token.attr-value {
+        color: #f9ee98;
+    }
+    .token.function {
+        color: #dad085;
+    }
+    .token.regex {
+        color: #e9c062;
+    }
+    .token.important {
+        color: #fd971f;
+    }
+    .token.important,
+    .token.bold {
+        font-weight: bold;
+    }
+    .token.italic {
+        font-style: italic;
+    }
+}

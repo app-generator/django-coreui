@@ -1,0 +1,81 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Register {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card mb-4 mx-4">
+              <div class="card-body p-4">
+                <h1>Register</h1>
+                <p class="text-medium-emphasis">
+                  {% if msg %}
+                    {{ msg | safe }}
+                  {% else %}              
+                    Create your account
+                  {% endif %}                  
+                </p>
+
+            <form role="form" method="post" action="">
+
+              {% csrf_token %} 
+
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
+                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-user"></use>
+
+                    </svg></span>
+                  {{ form.username }}
+                </div>
+                <span class="text-error">{{ form.username.errors }}</span>
+
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
+                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                    </svg></span>
+                  {{ form.email }}
+                </div>
+                <span class="text-error">{{ form.email.errors }}</span>
+
+                <div class="input-group mb-3"><span class="input-group-text">
+                    <svg class="icon">
+                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                    </svg></span>
+                  {{ form.password1 }}
+                </div>
+                <span class="text-error">{{ form.password1.errors }}</span>
+
+                <div class="input-group mb-4"><span class="input-group-text">
+                    <svg class="icon">
+                      <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                    </svg></span>
+                  {{ form.password2 }}
+                </div>
+                <span class="text-error">{{ form.password2.errors }}</span>
+
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn btn-block btn-success" type="submit" name="register">Create Account</button>
+                  </div>
+                  <div class="col-6 text-end">
+                    <a href="{% url 'login' %}" class="btn btn-link px-0" type="button">Login</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

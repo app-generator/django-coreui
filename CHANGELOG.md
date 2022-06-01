@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.5] 2022-06-01
+### Improvements
+
+- Built with [CoreUI Generator](https://appseed.us/generator/coreui/)
+  - Timestamp: `2022-06-01 08:50`
+
 ## [1.0.4] 2022-01-16
 ### Improvements
 
