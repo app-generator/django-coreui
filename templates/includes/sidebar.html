@@ -1,0 +1,283 @@
+{% load i18n static admin_coreui %}
+
+<style>
+.custom-ui {
+    font-size: 85px;
+}
+</style>
+  
+<div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
+
+  <div class="sidebar-header border-bottom">
+   
+    <div class="sidebar-brand">
+      <i class="custom-ui cib-coreui"></i>
+    </div>
+    <button class="btn-close d-lg-none" type="button" data-coreui-dismiss="offcanvas" data-coreui-theme="dark" aria-label="Close" onclick="coreui.Sidebar.getInstance(document.querySelector(&quot;#sidebar&quot;)).toggle()"></button>
+  </div>
+  <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+    <li class="nav-item">
+      <a class="nav-link" href="{% if request.user.is_superuser %} {% url 'admin:index' %} {% else %} {% url 'index' %} {% endif %}">
+        <svg class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <title>speedometer</title>
+          <path d="M19.955 6.67c-2.036-2.036-4.848-3.295-7.955-3.295-6.213 0-11.25 5.037-11.25 11.25 0 0 0 0 0 0v0 4.125h6.75v-1.5h-5.25v-2.625c0-5.376 4.374-9.75 9.75-9.75s9.75 4.374 9.75 9.75v2.625h-5.25v1.5h6.75v-4.125c0-0.009 0-0.020 0-0.031 0-3.097-1.26-5.9-3.295-7.924l-0-0z"></path>
+          <path d="M3.75 12.375h1.5v1.5h-1.5v-1.5z"></path>
+          <path d="M11.25 6h1.5v1.5h-1.5v-1.5z"></path>
+          <path d="M6.375 7.875h1.5v1.5h-1.5v-1.5z"></path>
+          <path d="M18.75 12.375h1.5v1.5h-1.5v-1.5z"></path>
+          <path d="M13.932 15.708l3.244-6.758-1.352-0.649-3.243 6.756c-0.177-0.037-0.379-0.058-0.587-0.058-1.66 0-3.007 1.346-3.007 3.007s1.346 3.007 3.007 3.007c1.66 0 3.007-1.346 3.007-3.007 0-0.92-0.413-1.743-1.063-2.294l-0.004-0.004zM12 19.5c-0.828 0-1.5-0.672-1.5-1.5s0.672-1.5 1.5-1.5c0.828 0 1.5 0.672 1.5 1.5v0c-0.001 0.828-0.672 1.499-1.5 1.5h-0z"></path>
+        </svg>
+          
+        Dashboard <span class="badge badge-sm bg-info ms-auto">NEW</span>
+      </a>
+    </li>
+
+    {% if not request.user.is_authenticated %}
+    <li class="nav-title">Authentication</li>
+    <li class="nav-group">
+        <a class="nav-link nav-group-toggle" href="#">
+            <svg  class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>star</title>
+                <path d="M23.156 9.313c-0.222-0.675-0.795-1.176-1.497-1.292l-0.011-0.002-5.433-0.883-2.519-4.894c-0.324-0.619-0.961-1.035-1.696-1.035s-1.372 0.415-1.691 1.024l-0.005 0.010-2.519 4.894-5.433 0.883c-0.914 0.153-1.602 0.937-1.602 1.883 0 0.524 0.211 0.999 0.553 1.344l-0-0 3.877 3.908-0.839 5.44c-0.014 0.088-0.023 0.189-0.023 0.293 0 1.053 0.854 1.906 1.907 1.906 0.314 0 0.61-0.076 0.871-0.21l-0.011 0.005 4.914-2.479 4.915 2.479c0.25 0.129 0.546 0.205 0.859 0.205 1.053 0 1.907-0.854 1.907-1.907 0-0.103-0.008-0.204-0.024-0.302l0.001 0.011-0.839-5.44 3.877-3.908c0.343-0.344 0.554-0.818 0.554-1.341 0-0.211-0.035-0.415-0.098-0.605l0.004 0.013zM21.631 10.189l-4.409 4.445 0.955 6.188c0.003 0.019 0.005 0.041 0.005 0.064 0 0.225-0.182 0.407-0.407 0.407-0.067 0-0.131-0.016-0.187-0.046l0.002 0.001-5.59-2.82-5.59 2.82c-0.054 0.028-0.117 0.045-0.185 0.045-0.225 0-0.406-0.182-0.406-0.407 0-0.023 0.002-0.045 0.005-0.066l-0 0.002 0.955-6.188-4.409-4.445c-0.073-0.074-0.118-0.175-0.118-0.287 0-0.202 0.147-0.37 0.34-0.402l0.002-0 6.18-1.004 2.865-5.567c0.069-0.132 0.205-0.221 0.362-0.221s0.293 0.089 0.361 0.219l0.001 0.002 2.865 5.567 6.18 1.004c0.195 0.033 0.342 0.2 0.342 0.402 0 0.112-0.045 0.213-0.118 0.287l0-0z"></path>
+            </svg>
+            Pages
+        </a>
+        <ul class="nav-group-items compact">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}" target="_top">
+                    <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                    </svg> Login
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}" target="_top">
+                    <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                    </svg> Register
+                </a>
+            </li>
+        </ul>
+    </li>
+    {% endif %}
+
+    {% admin_get_menu as app_list %}
+    {% if app_list %}
+      {% for app in app_list %}
+        {% if app.has_perms and not app.pinned %}
+          <li class="nav-group">
+            <a href="#" class="nav-link nav-group-toggle">
+              <svg  class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>puzzle</title>
+                <path d="M23.048 12.033l-2.576-2.318 0.769-0.628c0.342-0.282 0.628-0.616 0.851-0.991l0.010-0.017c0.851-1.474 0.603-3.283-0.616-4.502s-3.029-1.467-4.502-0.616c-0.393 0.233-0.727 0.519-1.004 0.854l-0.005 0.006-0.628 0.769-2.346-2.605c-0.204-0.203-0.485-0.329-0.795-0.329s-0.592 0.126-0.796 0.329l-3.075 3.075 0.056 1.111 1.552 1.268c0.206 0.169 0.379 0.369 0.514 0.594l0.006 0.010c0.507 0.878 0.355 1.959-0.378 2.692s-1.814 0.884-2.692 0.378c-0.236-0.141-0.435-0.314-0.601-0.516l-0.003-0.004-1.268-1.552-1.111-0.056-3.34 3.34c-0.204 0.204-0.33 0.485-0.33 0.795s0.126 0.592 0.33 0.795l8.22 8.22c0.679 0.679 1.616 1.098 2.652 1.098s1.973-0.42 2.652-1.098l8.485-8.485c0.203-0.204 0.329-0.485 0.329-0.795s-0.126-0.592-0.329-0.795l0 0zM13.531 21.076c-0.407 0.407-0.97 0.659-1.591 0.659s-1.184-0.252-1.591-0.659l-7.955-7.955 2.489-2.489 0.75 0.918c0.282 0.342 0.616 0.628 0.991 0.851l0.017 0.010c1.474 0.851 3.283 0.603 4.502-0.616s1.467-3.029 0.616-4.502c-0.233-0.393-0.519-0.727-0.854-1.004l-0.006-0.005-0.918-0.75 2.209-2.209 2.626 2.918 1.138-0.027 1.175-1.438c0.169-0.206 0.369-0.378 0.594-0.514l0.010-0.006c0.878-0.507 1.959-0.355 2.692 0.378s0.884 1.814 0.378 2.692c-0.141 0.235-0.314 0.435-0.515 0.601l-0.004 0.003-1.438 1.175-0.027 1.138 2.918 2.626z"></path>
+              </svg>
+              {{ app.label|slice:15 }}{% if app.label|length > 15 %}..{% endif %}
+            </a>
+            {% if app.models %}
+              <ul class="nav-group-items compact">
+                {% for model in app.models %}
+                  {% if model.url %}
+                    <li class="nav-item">
+                      <a href="{{ model.url }}" class="nav-link">
+                        <span class="nav-icon"><span class="nav-icon-bullet"></span></span> {{ model.label }}
+                      </a>
+                    </li>
+                  {% else %}
+                    <li class="nav-item list-unstyled">{{ model.label }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if request.user.is_authenticated and not request.user.is_superuser %}
+
+    <li class="nav-title">Theme</li>
+    
+    <li class="nav-item"><a class="nav-link" href="{% url 'colors' %}">
+      <svg class="nav-icon"  version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>drop</title>
+        <path d="M12 23.166c-4.443 0-8.058-3.615-8.058-8.058-0-0.006-0-0.014-0-0.021 0-1.785 0.585-3.434 1.574-4.764l-0.015 0.021 5.867-9.164c0.135-0.209 0.368-0.346 0.632-0.346s0.496 0.136 0.63 0.343l0.002 0.003 5.867 9.164c0.974 1.309 1.559 2.958 1.559 4.743 0 0.007 0 0.015-0 0.022v-0.001c0 4.443-3.615 8.058-8.058 8.058zM12 2.975l-5.248 8.198q-0.014 0.021-0.029 0.041c-0.8 1.068-1.281 2.416-1.281 3.876 0 0.006 0 0.012 0 0.019v-0.001c0 3.616 2.942 6.558 6.558 6.558s6.558-2.942 6.558-6.558c0-0.005 0-0.012 0-0.018 0-1.46-0.481-2.807-1.293-3.893l0.012 0.017q-0.015-0.020-0.029-0.041z"></path>
+        </svg> Colors</a>
+      </li>
+
+    <li class="nav-item"><a class="nav-link" href="{% url 'typography' %}">
+      <svg  class="nav-icon"  version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>pencil</title>
+        <path d="M22.029 1.971c-0.754-0.754-1.795-1.22-2.944-1.22s-2.191 0.466-2.944 1.22l-12.773 12.773-2.258 6.657c-0.040 0.113-0.063 0.243-0.063 0.378 0 0.323 0.132 0.616 0.344 0.827l0.004 0.004c0.211 0.212 0.503 0.344 0.826 0.344h0c0.136-0 0.266-0.023 0.388-0.066l-0.008 0.003 6.657-2.258 12.773-12.773c0.754-0.754 1.22-1.795 1.22-2.944s-0.466-2.191-1.22-2.944v0zM8.443 19.325l-5.702 1.934 1.934-5.702 9.785-9.785 3.767 3.767zM20.969 6.799l-1.68 1.68-3.767-3.767 1.68-1.68c0.482-0.483 1.149-0.783 1.886-0.783 1.471 0 2.664 1.193 2.664 2.664 0 0.737-0.299 1.404-0.783 1.886l-0 0z"></path>
+        </svg>
+        Typography</a>
+    </li>
+
+    <li class="nav-title">Components</li>
+
+    <li class="nav-group">
+      <a class="nav-link nav-group-toggle" href="#">
+        <svg  class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <title>puzzle</title>
+          <path d="M23.048 12.033l-2.576-2.318 0.769-0.628c0.342-0.282 0.628-0.616 0.851-0.991l0.010-0.017c0.851-1.474 0.603-3.283-0.616-4.502s-3.029-1.467-4.502-0.616c-0.393 0.233-0.727 0.519-1.004 0.854l-0.005 0.006-0.628 0.769-2.346-2.605c-0.204-0.203-0.485-0.329-0.795-0.329s-0.592 0.126-0.796 0.329l-3.075 3.075 0.056 1.111 1.552 1.268c0.206 0.169 0.379 0.369 0.514 0.594l0.006 0.010c0.507 0.878 0.355 1.959-0.378 2.692s-1.814 0.884-2.692 0.378c-0.236-0.141-0.435-0.314-0.601-0.516l-0.003-0.004-1.268-1.552-1.111-0.056-3.34 3.34c-0.204 0.204-0.33 0.485-0.33 0.795s0.126 0.592 0.33 0.795l8.22 8.22c0.679 0.679 1.616 1.098 2.652 1.098s1.973-0.42 2.652-1.098l8.485-8.485c0.203-0.204 0.329-0.485 0.329-0.795s-0.126-0.592-0.329-0.795l0 0zM13.531 21.076c-0.407 0.407-0.97 0.659-1.591 0.659s-1.184-0.252-1.591-0.659l-7.955-7.955 2.489-2.489 0.75 0.918c0.282 0.342 0.616 0.628 0.991 0.851l0.017 0.010c1.474 0.851 3.283 0.603 4.502-0.616s1.467-3.029 0.616-4.502c-0.233-0.393-0.519-0.727-0.854-1.004l-0.006-0.005-0.918-0.75 2.209-2.209 2.626 2.918 1.138-0.027 1.175-1.438c0.169-0.206 0.369-0.378 0.594-0.514l0.010-0.006c0.878-0.507 1.959-0.355 2.692 0.378s0.884 1.814 0.378 2.692c-0.141 0.235-0.314 0.435-0.515 0.601l-0.004 0.003-1.438 1.175-0.027 1.138 2.918 2.626z"></path>
+        </svg> Base
+      </a>
+      <ul class="nav-group-items compact">
+        <li class="nav-item"><a class="nav-link" href="{% url 'accordion' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Accordion</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'breadcrumb' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Breadcrumb</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'cards' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Cards</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'carousel' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Carousel</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'collapse' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Collapse</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'listGrpup' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> List group</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'nav_tabs' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Navs &amp; Tabs</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'pagination' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Pagination</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'placeholders' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Placeholders</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'popovers' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Popovers</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'progress' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Progress</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'spinners' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Spinners</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'tables' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Tables</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'tooltips' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Tooltips</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <svg  class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <title>cursor</title>
+      <path d="M14.218 23.25h1.735l5.295-20.045c0.020-0.072 0.031-0.154 0.031-0.239 0-0.518-0.42-0.938-0.938-0.938-0.145 0-0.282 0.033-0.404 0.091l0.006-0.002-18.443 8.657v1.734l7.751 3.1zM19.49 3.986l-4.624 17.507-4.616-7.101-6.98-2.792z"></path>
+      </svg>
+        Buttons</a>
+      <ul class="nav-group-items compact">
+        <li class="nav-item"><a class="nav-link" href="{% url 'buttons' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Buttons</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'button_group' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Buttons Group</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'dropdowns' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Dropdowns</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="{% url 'charts' %}">
+      <svg class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>chart-pie</title>
+        <path d="M4.939 18.671c-1.659-1.661-2.685-3.955-2.685-6.489 0-5.071 4.111-9.182 9.182-9.182 1.719 0 3.328 0.472 4.704 1.295l-0.042-0.023 1.090-1.090c-1.628-1.056-3.619-1.684-5.756-1.684-5.899 0-10.682 4.782-10.682 10.682 0 2.949 1.195 5.62 3.128 7.553l-0-0c1.934 1.933 4.605 3.128 7.556 3.128 2.128 0 4.111-0.622 5.776-1.694l-0.042 0.025-1.093-1.093c-3.517 2.062-8.122 1.586-11.136-1.428z"></path>
+        <path d="M21.98 16.55c0.55-1.291 0.87-2.793 0.87-4.37s-0.32-3.079-0.898-4.445l0.028 0.075c-0.041-0.1-0.085-0.199-0.129-0.298-0.598-1.321-1.387-2.449-2.346-3.407l-0.53-0.531-8.605 8.606 8.605 8.605 0.53-0.53c0.944-0.942 1.722-2.049 2.289-3.275l0.029-0.070c0.054-0.119 0.107-0.239 0.157-0.36zM18.954 5.716c1.489 1.725 2.396 3.988 2.396 6.464s-0.907 4.739-2.406 6.476l0.011-0.013-6.464-6.464z"></path>
+        </svg>
+         Charts</a>
+      
+      </li>
+
+
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+      <svg class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>notes</title>
+        <path d="M5.25 7.125h13.5v1.5h-13.5v-1.5z"></path>
+        <path d="M5.25 11.25h13.5v1.5h-13.5v-1.5z"></path>
+        <path d="M5.25 15.375h7.125v1.5h-7.125v-1.5z"></path>
+        <path d="M1.5 2.25v19.5h21v-19.5zM21 20.25h-18v-16.5h18z"></path>
+        </svg>
+        Forms
+      </a>
+      <ul class="nav-group-items compact">
+        <li class="nav-item"><a class="nav-link" href="{% url 'form_control' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Form Control</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'select' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Select</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'checks_radios' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Checks and radios</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'range' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Range</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'input_group' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Input group</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'floating_labels' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Floating labels</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'layout' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Layout</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'validation' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Validation</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+      <svg  class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>star</title>
+        <path d="M23.156 9.313c-0.222-0.675-0.795-1.176-1.497-1.292l-0.011-0.002-5.433-0.883-2.519-4.894c-0.324-0.619-0.961-1.035-1.696-1.035s-1.372 0.415-1.691 1.024l-0.005 0.010-2.519 4.894-5.433 0.883c-0.914 0.153-1.602 0.937-1.602 1.883 0 0.524 0.211 0.999 0.553 1.344l-0-0 3.877 3.908-0.839 5.44c-0.014 0.088-0.023 0.189-0.023 0.293 0 1.053 0.854 1.906 1.907 1.906 0.314 0 0.61-0.076 0.871-0.21l-0.011 0.005 4.914-2.479 4.915 2.479c0.25 0.129 0.546 0.205 0.859 0.205 1.053 0 1.907-0.854 1.907-1.907 0-0.103-0.008-0.204-0.024-0.302l0.001 0.011-0.839-5.44 3.877-3.908c0.343-0.344 0.554-0.818 0.554-1.341 0-0.211-0.035-0.415-0.098-0.605l0.004 0.013zM21.631 10.189l-4.409 4.445 0.955 6.188c0.003 0.019 0.005 0.041 0.005 0.064 0 0.225-0.182 0.407-0.407 0.407-0.067 0-0.131-0.016-0.187-0.046l0.002 0.001-5.59-2.82-5.59 2.82c-0.054 0.028-0.117 0.045-0.185 0.045-0.225 0-0.406-0.182-0.406-0.407 0-0.023 0.002-0.045 0.005-0.066l-0 0.002 0.955-6.188-4.409-4.445c-0.073-0.074-0.118-0.175-0.118-0.287 0-0.202 0.147-0.37 0.34-0.402l0.002-0 6.18-1.004 2.865-5.567c0.069-0.132 0.205-0.221 0.362-0.221s0.293 0.089 0.361 0.219l0.001 0.002 2.865 5.567 6.18 1.004c0.195 0.033 0.342 0.2 0.342 0.402 0 0.112-0.045 0.213-0.118 0.287l0-0z"></path>
+        </svg>
+        
+         Icons</a>
+      <ul class="nav-group-items compact">
+        <li class="nav-item"><a class="nav-link" href="{% url 'coreui_icons_free' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> CoreUI Icons<span class="badge badge-sm bg-success ms-auto">Free</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'coreui_icons_brand' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> CoreUI Icons - Brand</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'coreui_icons_flag' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> CoreUI Icons - Flag</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+      <svg class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>bell</title>
+        <path d="M21.106 16.339l-2.047-3.779v-3.935c0-3.929-3.196-7.125-7.125-7.125s-7.125 3.196-7.125 7.125v3.935l-2.047 3.779c-0.085 0.155-0.136 0.339-0.136 0.536 0 0.621 0.504 1.125 1.125 1.125h4.075c-0.011 0.124-0.017 0.249-0.017 0.375 0 2.278 1.847 4.125 4.125 4.125s4.125-1.847 4.125-4.125v0c0-0.126-0.006-0.251-0.017-0.375h4.075c0 0 0 0 0 0 0.621 0 1.125-0.504 1.125-1.125 0-0.196-0.050-0.381-0.139-0.542l0.003 0.006zM14.559 18.375c0 0.001 0 0.001 0 0.002 0 1.45-1.175 2.625-2.625 2.625s-2.625-1.175-2.625-2.625c0-0.133 0.010-0.264 0.029-0.392l-0.002 0.014h5.196c0.017 0.113 0.027 0.243 0.027 0.375v0zM4.381 16.5l1.928-3.56v-4.315c0-3.107 2.518-5.625 5.625-5.625s5.625 2.518 5.625 5.625v0 4.315l1.928 3.56z"></path>
+        </svg>
+        
+        Notifications</a>
+      <ul class="nav-group-items compact">
+        <li class="nav-item"><a class="nav-link" href="{% url 'alerts' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Alerts</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'badge' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Badge</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'modals' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Modals</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'toasts' %}"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Toasts</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item"><a class="nav-link" href="{% url 'widgets' %}">
+      <svg class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>calculator</title>
+        <path d="M22.125 1.875h-20.25c-0.621 0.001-1.124 0.504-1.125 1.125v18c0.001 0.621 0.504 1.124 1.125 1.125h20.25c0.621-0.001 1.124-0.504 1.125-1.125v-18c-0.001-0.621-0.504-1.124-1.125-1.125h-0zM21.75 20.625h-19.5v-17.25h19.5z"></path>
+        <path d="M7.125 11.25h1.5v-1.875h1.875v-1.5h-1.875v-1.875h-1.5v1.875h-1.875v1.5h1.875v1.875z"></path>
+        <path d="M9.201 13.364l-1.326 1.326-1.326-1.326-1.061 1.061 1.326 1.326-1.326 1.326 1.061 1.061 1.326-1.326 1.326 1.326 1.061-1.061-1.326-1.326 1.326-1.326-1.061-1.061z"></path>
+        <path d="M13.5 7.875h5.25v1.5h-5.25v-1.5z"></path>
+        <path d="M13.5 13.5h5.25v1.5h-5.25v-1.5z"></path>
+        <path d="M13.5 16.5h5.25v1.5h-5.25v-1.5z"></path>
+        </svg>
+        
+        Widgets<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
+    <li class="nav-divider"></li>
+    <li class="nav-title">Extras</li>
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+      <svg  class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>star</title>
+        <path d="M23.156 9.313c-0.222-0.675-0.795-1.176-1.497-1.292l-0.011-0.002-5.433-0.883-2.519-4.894c-0.324-0.619-0.961-1.035-1.696-1.035s-1.372 0.415-1.691 1.024l-0.005 0.010-2.519 4.894-5.433 0.883c-0.914 0.153-1.602 0.937-1.602 1.883 0 0.524 0.211 0.999 0.553 1.344l-0-0 3.877 3.908-0.839 5.44c-0.014 0.088-0.023 0.189-0.023 0.293 0 1.053 0.854 1.906 1.907 1.906 0.314 0 0.61-0.076 0.871-0.21l-0.011 0.005 4.914-2.479 4.915 2.479c0.25 0.129 0.546 0.205 0.859 0.205 1.053 0 1.907-0.854 1.907-1.907 0-0.103-0.008-0.204-0.024-0.302l0.001 0.011-0.839-5.44 3.877-3.908c0.343-0.344 0.554-0.818 0.554-1.341 0-0.211-0.035-0.415-0.098-0.605l0.004 0.013zM21.631 10.189l-4.409 4.445 0.955 6.188c0.003 0.019 0.005 0.041 0.005 0.064 0 0.225-0.182 0.407-0.407 0.407-0.067 0-0.131-0.016-0.187-0.046l0.002 0.001-5.59-2.82-5.59 2.82c-0.054 0.028-0.117 0.045-0.185 0.045-0.225 0-0.406-0.182-0.406-0.407 0-0.023 0.002-0.045 0.005-0.066l-0 0.002 0.955-6.188-4.409-4.445c-0.073-0.074-0.118-0.175-0.118-0.287 0-0.202 0.147-0.37 0.34-0.402l0.002-0 6.18-1.004 2.865-5.567c0.069-0.132 0.205-0.221 0.362-0.221s0.293 0.089 0.361 0.219l0.001 0.002 2.865 5.567 6.18 1.004c0.195 0.033 0.342 0.2 0.342 0.402 0 0.112-0.045 0.213-0.118 0.287l0-0z"></path>
+        </svg>
+        Pages</a>
+      <ul class="nav-group-items compact">
+        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}" target="_top">
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+            </svg> Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}" target="_top">
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+            </svg> Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="404.html" target="_top">
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
+            </svg> Error 404</a></li>
+        <li class="nav-item"><a class="nav-link" href="500.html" target="_top">
+            <svg class="nav-icon">
+              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
+            </svg> Error 500</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item mt-auto">
+      <a class="nav-link" href="https://coreui.io/docs/templates/installation/" target="_blank">
+        <svg   class="nav-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <title>description</title>
+          <path d="M15.686 0.75h-13.436v22.5h19.875v-16.061zM20.625 7.811v0.064h-5.625v-5.625h0.064zM3.75 21.75v-19.5h9.75v7.125h7.125v12.375z"></path>
+          <path d="M6.375 13.875h10.5v1.5h-10.5v-1.5z"></path>
+          <path d="M6.375 17.625h10.5v1.5h-10.5v-1.5z"></path>
+        </svg>
+        Docs
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-primary fw-semibold" href="https://coreui.io/product/bootstrap-dashboard-template/" target="_top">
+        <svg class="nav-icon text-primary">
+          <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
+        </svg> 
+        Try CoreUI PRO
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+  <div class="sidebar-footer border-top d-none d-md-flex">
+    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+  </div>
+</div>
+
+
