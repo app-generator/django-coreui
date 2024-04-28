@@ -1,7 +1,14 @@
 # Change Log
 
+## [1.0.6] 2024-04-28
+### Changes
+
+- Added CoreUI Theme
+- Codebase refactoring 
+- Added CI/Cd for Render
+
 ## [1.0.5] 2022-06-01
-### Improvements
+### Changes
 
 - Built with [CoreUI Generator](https://appseed.us/generator/coreui/)
   - Timestamp: `2022-06-01 08:50`
