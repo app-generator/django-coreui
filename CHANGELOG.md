@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.7] 2024-04-28 
+### Changes
+
+- Update Sidebar
+  - Added Auth Links
+- Update [Django CoreUI DEMO](https://django-coreui.onrender.com/) Link  
+
 ## [1.0.6] 2024-04-28 
 ### Changes
 
