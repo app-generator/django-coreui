@@ -73,6 +73,13 @@ $ source env/bin/activate
 $ pip3 install -r requirements.txt
 ```
 
+> Install JS Dependencies  
+
+```bash
+$ cd static/assets
+$ npm i 
+```
+
 <br />
 
 > Set Up Database

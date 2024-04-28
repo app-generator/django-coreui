@@ -1,0 +1,38 @@
+{% extends 'layouts/base-fullscreen.html' %}
+
+{% block content %}
+  
+<div class="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mb-4 mx-4">
+          <div class="card-body p-4">
+            <h1>Register</h1>
+            <p class="text-body-secondary">Create your account</p>
+            <form method="POST">
+              {% csrf_token %}
+
+              {% for field in form %}
+                <div class="input-group mb-3">
+                  <span class="input-group-text">
+                    <svg class="icon">
+                      <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use>
+                    </svg>
+                  </span>
+                  {{ field }}
+
+                </div>
+                <small class="text-danger"> {{ field.errors }} </small>
+              {% endfor %}
+            <button class="btn btn-block btn-success" type="submit">Create Account</button>
+            <span class="d-block mt-3">Already have an account? <a href="{% url "login" %}">Login</a></span>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+  

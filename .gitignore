@@ -19,13 +19,12 @@ venv
 .DS_Store
 
 # javascript
-package-lock.json
+#package-lock.json
+#yarn.lock
 
 staticfiles/*
 !staticfiles/.gitkeep 
 .vscode/symbols.json
 
-apps/static/assets/node_modules
-apps/static/assets/yarn.lock
-apps/static/assets/.temp
-
+static/assets/node_modules
+static/assets/.temp

@@ -5,7 +5,10 @@
 
 - Added CoreUI Theme
 - Codebase refactoring 
-- Added CI/Cd for Render
+- Added CI/Cd for Render 
+- Update Settings
+  - Local Templates
+  - Local Assets 
 
 ## [1.0.5] 2022-06-01
 ### Changes

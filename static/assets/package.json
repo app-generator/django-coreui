@@ -1,0 +1,124 @@
+{
+  "name": "@coreui/coreui-free-bootstrap-admin-template",
+  "version": "5.0.0",
+  "description": "Free Bootstrap Admin Template",
+  "keywords": [
+    "admin",
+    "admin panel",
+    "admin template",
+    "bootstrap",
+    "css",
+    "dashboard",
+    "framework",
+    "front-end",
+    "responsive",
+    "sass",
+    "ui kit",
+    "webapp"
+  ],
+  "homepage": "https://coreui.io",
+  "bugs": {
+    "url": "https://github.com/coreui/coreui-free-bootstrap-admin-template/issues",
+    "email": "support@coreui.io"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "creativeLabs Łukasz Holeczek",
+    "url": "https://coreui.io",
+    "github": "https://github.com/coreui",
+    "twitter": "https://twitter.com/core_ui"
+  },
+  "contributors": [
+    {
+      "name": "CoreUI Core Team",
+      "url": "https://github.com/orgs/coreui/people"
+    }
+  ],
+  "main": "dist/index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coreui/coreui-free-bootstrap-admin-template.git"
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/coreui"
+    },
+    {
+      "type": "subscription",
+      "url": "hhttps://coreui.io/pricing/?framework=bootstrap"
+    }
+  ],
+  "scripts": {
+    "build": "npm-run-all clean --parallel css js sync --sequential build-vendors",
+    "build-vendors": "node build/vendors.mjs",
+    "clean": "rimraf dist",
+    "css": "npm-run-all --parallel css-compile* --sequential css-prefix css-minify*",
+    "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css --load-path=node_modules/ src/scss/:dist/css/",
+    "css-lint": "npm-run-all --continue-on-error --parallel css-lint-*",
+    "css-lint-stylelint": "stylelint \"**/*.{css,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
+    "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output dist/css/ --batch --batch-suffix \".min\" \"dist/css/*.css\" \"!dist/css/*.min.css\" \"!dist/css/*rtl*.css\"",
+    "css-prefix": "postcss --config build/postcss.config.mjs --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "js": "npm-run-all --parallel js-compile* ",
+    "js-compile": "cross-env babel src/js/ --out-dir dist/js/ --source-maps",
+    "js-lint": "eslint --cache --cache-location .cache/.eslintcache --report-unused-disable-directives .",
+    "localhost": "browser-sync start --server \"./dist\" --serveStatic \"./\" --files \"./dist/\"",
+    "postinstall": "node build/postinstall.mjs || exit 0",
+    "pug": "node build/pug.mjs",
+    "release-version": "node build/change-version.mjs",
+    "serve": "serve dist",
+    "start": "npm-run-all --sequential clean css js sync --parallel localhost watch",
+    "sync": "npm-run-all --parallel sync-*",
+    "sync-assets": "syncdir src/assets dist/assets",
+    "sync-views": "syncdir src/views dist",
+    "watch": "npm-run-all --parallel watch-*",
+    "watch-assets": "nodemon --watch src/assets --exec \"npm run sync-assets\"",
+    "watch-css": "nodemon --watch scss/ --ext scss --exec \"npm-run-all css-lint css-compile css-prefix\"",
+    "watch-html": "nodemon --watch src/views --ext html --exec \"npm run sync-views\"",
+    "watch-js": "nodemon --watch src/js --ext js --exec \"npm-run-all js-lint js-compile\"",
+    "watch-pug": "nodemon --watch src/pug --ext pug --exec \"npm run pug\"",
+    "zip": "npm-run-all --sequential build zip-*",
+    "zip-dist": "cross-env-shell \"rm -rf coreui-free-bootstrap-admin-template-v$npm_package_version-dist coreui-free-bootstrap-admin-template-v$npm_package_version-dist.zip && cp -r dist/ coreui-free-bootstrap-admin-template-v$npm_package_version-dist && zip -qr9 coreui-free-bootstrap-admin-template-v$npm_package_version-dist.zip coreui-free-bootstrap-admin-template-v$npm_package_version-dist && rm -rf coreui-free-bootstrap-admin-template-v$npm_package_version-dist\"",
+    "zip-src": "git archive -o coreui-free-bootstrap-admin-template-v$npm_package_version.zip -9 HEAD"
+  },
+  "dependencies": {
+    "@coreui/chartjs": "^4.0.0",
+    "@coreui/coreui": "^5.0.0",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/utils": "^2.0.2",
+    "chart.js": "^4.4.2",
+    "simplebar": "^6.2.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "@coreui/vendors-injector": "^1.1.4",
+    "autoprefixer": "^10.4.19",
+    "browser-sync": "^3.0.2",
+    "clean-css-cli": "^5.6.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-config-xo": "^0.44.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-unicorn": "^51.0.1",
+    "find-unused-sass-variables": "^5.0.0",
+    "globby": "^11.1.0",
+    "mkdirp": "^3.0.1",
+    "nodemon": "^3.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-drop-empty-css-vars": "^0.0.0",
+    "prettier": "3.2.5",
+    "pug": "^3.0.2",
+    "rimraf": "^5.0.5",
+    "sass": "^1.72.0",
+    "serve": "^14.2.1",
+    "shelljs": "^0.8.5",
+    "stylelint": "16.3.1",
+    "stylelint-config-twbs-bootstrap": "^14.0.0",
+    "sync-directory": "^6.0.5"
+  }
+}
