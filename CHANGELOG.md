@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.0.6] 2024-04-28
+## [1.0.6] 2024-04-28 
 ### Changes
 
 - Added CoreUI Theme
