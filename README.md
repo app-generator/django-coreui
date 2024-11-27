@@ -18,7 +18,7 @@ Open-source **Django Dashboard** built on top of CoreO, on top of an iconic open
 
 - **Django 4.1.12**
 - Best Practices
-- **Berry Dashboard Dashboard** - Full Integration 
+- **[CoreUI Dashboard Design](https://app-generator.dev/docs/templates/bootstrap/coreui.html)** - Full Integration 
 - `CI/CD` Flow via Render 
 - `Docker`
 
